@@ -3,17 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   lr_utils.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ale-boud <ale-boud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amassias <massias.antoine.pro@gmail.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 04:16:04 by ale-boud          #+#    #+#             */
-/*   Updated: 2023/11/29 14:08:14 by ale-boud         ###   ########.fr       */
+/*   Updated: 2024/11/30 15:25:28 by amassias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /**
  * @file lr_utils.h
- * @author ale-boud (ale-boud@student.42.fr)
+ * 
  * @brief The helpers definition.
+ * 
+ * @author ale-boud (ale-boud@student.42.fr)
  * @date 2023-11-29
  * @copyright Copyright (c) 2023
  */

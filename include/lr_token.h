@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lr_token.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amassias <amassias@student.42lehavre.fr    +#+  +:+       +#+        */
+/*   By: amassias <massias.antoine.pro@gmail.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 13:36:04 by ale-boud          #+#    #+#             */
-/*   Updated: 2024/11/30 13:15:24 by amassias         ###   ########.fr       */
+/*   Updated: 2024/11/30 15:25:02 by amassias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ typedef MP_TOKEN_TYPE	t_lr_token_type;
 
 /**
  * @brief The state from which this token is created.
+ * 
  * @author ale-boud (ale-boud@student.42.fr)
  * @date 2023-11-29
  * @copyright Copyright (c) 2023
@@ -73,7 +74,9 @@ typedef int				t_lr_token_id;
 
 /**
  * @brief A callback to free your token type.
+ * 
  * @param data A token data.
+ * 
  * @author ale-boud (ale-boud@student.42.fr)
  * @date 2023-11-29
  * @copyright Copyright (c) 2023
@@ -82,8 +85,10 @@ typedef void			(*t_lr_token_free_cb)(t_lr_token_type *data);
 
 /**
  * @brief A token description.
+ * 
  * @param id The state id.
  * @param data The data contained in this token.
+ * 
  * @author ale-boud (ale-boud@student.42.fr)
  * @date 2023-11-29
  * @copyright Copyright (c) 2023

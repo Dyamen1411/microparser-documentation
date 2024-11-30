@@ -3,17 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   lr_type.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ale-boud <ale-boud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amassias <massias.antoine.pro@gmail.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 02:47:15 by ale-boud          #+#    #+#             */
-/*   Updated: 2023/11/29 13:51:08 by ale-boud         ###   ########.fr       */
+/*   Updated: 2024/11/30 15:25:22 by amassias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /**
  * @file lr_type.h
- * @author ale-boud (ale-boud@student.42.fr)
+ * 
  * @brief The types definition for LR parser.
+ * 
+ * @author ale-boud (ale-boud@student.42.fr)
  * @date 2023-11-29
  * @copyright Copyright (c) 2023
  */
