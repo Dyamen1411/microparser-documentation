@@ -6,7 +6,7 @@
 /*   By: amassias <amassias@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 13:36:04 by ale-boud          #+#    #+#             */
-/*   Updated: 2024/11/30 11:35:40 by amassias         ###   ########.fr       */
+/*   Updated: 2024/11/30 13:15:24 by amassias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,11 @@
  * 	Example 2 :
  * 	@code
  * 	#define MP_TOKEN_TYPE	\
- * 	struct		\
- * 	{			\
- * 		int a;	\
- * 		bool b;	\
+ * 	struct			\
+ * 	{				\
+ * 		int a;		\
+ * 		bool b;		\
+ * 		char* ptr;	\
  * 	}
  * 	@endcode
  * @endparblock
@@ -63,7 +64,7 @@ typedef MP_TOKEN_TYPE	t_lr_token_type;
 # endif
 
 /**
- * @brief The id of a token.
+ * @brief The state from which this token is created.
  * @author ale-boud (ale-boud@student.42.fr)
  * @date 2023-11-29
  * @copyright Copyright (c) 2023
@@ -81,7 +82,7 @@ typedef void			(*t_lr_token_free_cb)(t_lr_token_type *data);
 
 /**
  * @brief A token description.
- * @param id The token id.
+ * @param id The state id.
  * @param data The data contained in this token.
  * @author ale-boud (ale-boud@student.42.fr)
  * @date 2023-11-29
