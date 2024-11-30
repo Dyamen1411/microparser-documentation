@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ale-boud <ale-boud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amassias <massias.antoine.pro@gmail.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 04:45:46 by ale-boud          #+#    #+#             */
-/*   Updated: 2023/12/14 02:37:28 by ale-boud         ###   ########.fr       */
+/*   Updated: 2024/11/30 19:39:53 by amassias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@
 // *                                                                        * //
 // ************************************************************************** //
 
-int	lr_parser_init(
-		t_lr_parser_ctx *ctx,
-		void *usrptr
-		)
+t_lr_error	lr_parser_init(
+				t_lr_parser_ctx *ctx,
+				void *usrptr
+				)
 {
 	t_lr_stack_item	axiom;
 	t_lr_error		err;
