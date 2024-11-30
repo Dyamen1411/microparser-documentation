@@ -3,17 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   lr_token.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ale-boud <ale-boud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amassias <amassias@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 13:36:04 by ale-boud          #+#    #+#             */
-/*   Updated: 2023/12/14 02:40:23 by ale-boud         ###   ########.fr       */
+/*   Updated: 2024/11/30 11:35:40 by amassias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /**
  * @file lr_token.h
- * @author ale-boud (ale-boud@student.42.fr)
+ * 
  * @brief Definition of tokens.
+ * 
+ * @par
+ * 	You must define `MP_TOKEN_TYPE` with the type of the token !
+ * @endparblock
+ * 
+ * @par
+ * 	Example 1 :
+ * 	@code
+ * 	#define MP_TOKEN_TYPE int
+ * 	@endcode
+ * @endparblock
+ * 
+ * @par
+ * 	Example 2 :
+ * 	@code
+ * 	#define MP_TOKEN_TYPE	\
+ * 	struct		\
+ * 	{			\
+ * 		int a;	\
+ * 		bool b;	\
+ * 	}
+ * 	@endcode
+ * @endparblock
+ * 
+ * @author ale-boud (ale-boud@student.42.fr)
  * @date 2023-11-29
  * @copyright Copyright (c) 2023
  */
@@ -37,10 +62,31 @@ typedef MP_TOKEN_TYPE	t_lr_token_type;
 
 # endif
 
+/**
+ * @brief The id of a token.
+ * @author ale-boud (ale-boud@student.42.fr)
+ * @date 2023-11-29
+ * @copyright Copyright (c) 2023
+ */
 typedef int				t_lr_token_id;
 
+/**
+ * @brief A callback to free your token type.
+ * @param data A token data.
+ * @author ale-boud (ale-boud@student.42.fr)
+ * @date 2023-11-29
+ * @copyright Copyright (c) 2023
+ */
 typedef void			(*t_lr_token_free_cb)(t_lr_token_type *data);
 
+/**
+ * @brief A token description.
+ * @param id The token id.
+ * @param data The data contained in this token.
+ * @author ale-boud (ale-boud@student.42.fr)
+ * @date 2023-11-29
+ * @copyright Copyright (c) 2023
+ */
 typedef struct s_lr_token
 {
 	t_lr_token_id	id;
