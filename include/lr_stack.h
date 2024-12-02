@@ -6,7 +6,7 @@
 /*   By: amassias <massias.antoine.pro@gmail.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 00:32:25 by ale-boud          #+#    #+#             */
-/*   Updated: 2024/12/02 09:36:02 by amassias         ###   ########.fr       */
+/*   Updated: 2024/12/03 00:45:12 by amassias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ typedef union u_lr_stack_item_data
  * 
  * @param type The token type.
  * @param data The token data.
- * @param state_id The id of the state from which this stack item comes from.
+ * @param state_id The current automata state id.
  * 
  * @author ale-boud (ale-boud@student.42.fr)
  * @date 2023-11-29
@@ -136,7 +136,7 @@ typedef struct s_lr_stack_item
 	 */
 	t_lr_stack_item_data	data;
 	/**
-	 * @brief The state from which this item comes from.
+	 * @brief The current automata state id.
 	 */
 	t_lr_state_id			state_id;
 }	t_lr_stack_item;
