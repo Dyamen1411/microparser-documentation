@@ -6,7 +6,7 @@
 /*   By: amassias <massias.antoine.pro@gmail.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 01:33:50 by ale-boud          #+#    #+#             */
-/*   Updated: 2024/11/30 19:45:18 by amassias         ###   ########.fr       */
+/*   Updated: 2024/12/03 00:42:38 by amassias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -335,28 +335,101 @@ void			lr_parser_destroy(
 // *                                                                        * //
 // ************************************************************************** //
 
+/**
+ * @brief Parsing core logic. \n
+ * See `lr_parser_exec` for more details.
+ * 
+ * @param ctx The parser context.
+ * @param token The token to be parsed.
+ * @return t_lr_error 
+ * - `LR_ACCEPT` if the token marks the accepted parser state.
+ * - `LR_BAD_ALLOC` if an allocation error occured.
+ * - `LR_INTERNAL_ERROR`
+ * - `LR_SYNTAX_ERROR` if the token can't be accepted by the grammar.
+ * - `LR_OK` otherwise.
+ * 
+ * @see lr_parser_exec
+ * 
+ * @author ale-boud (ale-boud@student.42.fr)
+ * @date 2023-11-29
+ * @copyright Copyright (c) 2023
+ */
 t_lr_error		_lr_parser_exec(
 					t_lr_parser_ctx *ctx,
-					const t_lr_token *tokens
+					const t_lr_token *token
 					);
 
+/**
+ * @brief Pushes a new item onto the stack (as per theory).
+ * 
+ * @param ctx The parser context.
+ * @param token The token to be pushed onto the stack.
+ * @param state_id The state in which the parser automata should go.
+ * @return t_lr_error
+ * - `LR_BAD_ALLOC` if a memory allocation failed.
+ * - `LR_OK` otherwise.
+ * 
+ * @author ale-boud (ale-boud@student.42.fr)
+ * @date 2023-11-29
+ * @copyright Copyright (c) 2023
+ */
 t_lr_error		_lr_parser_shift(
 					t_lr_parser_ctx *ctx,
 					t_lr_token token,
 					t_lr_state_id state_id
 					);
 
+/**
+ * @brief Removes all the items needed for a production then calls the associted
+ * procution callback.
+ * 
+ * @param ctx The parser context.
+ * @param prod_id The id of the current production.
+ * @return t_lr_error
+ * - `LR_INTERNAL_ERROR` if the stack is not in a valid state or if the callback
+ * had an error.
+ * - `LR_BAD_ALLOC` if a memory allocation failed.
+ * - `LR_OK` otherwise.
+ * 
+ * @author ale-boud (ale-boud@student.42.fr)
+ * @date 2023-11-29
+ * @copyright Copyright (c) 2023
+ */
 t_lr_error		_lr_parser_reduce(
 					t_lr_parser_ctx *ctx,
 					t_lr_prod_id prod_id
 					);
 
+/**
+ * @brief Given the current praser automaton state and a production, returns the
+ * state in which to go.
+ * 
+ * @param ctx The parser context.
+ * @param state_id The current state id.
+ * @param prod_id The current production id.
+ * @return t_lr_state_id The state in which to go.
+ * 
+ * @author ale-boud (ale-boud@student.42.fr)
+ * @date 2023-11-29
+ * @copyright Copyright (c) 2023
+ */
 t_lr_state_id	_lr_parser_get_goto(
 					t_lr_parser_ctx *ctx,
 					t_lr_state_id state_id,
 					t_lr_prod_id prod_id
 					);
 
+/**
+ * @brief The action to take given the `token`.
+ * 
+ * @param ctx Th parser context.
+ * @param token The token to parse.
+ * @return t_lr_action The action to take.
+ * 
+ * @author ale-boud (ale-boud@student.42.fr)
+ * @date 2023-11-29
+ * @copyright Copyright (c) 2023
+ */
 t_lr_action		_lr_parser_get_action(
 					t_lr_parser_ctx *ctx,
 					const t_lr_token *token
