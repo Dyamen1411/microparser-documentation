@@ -6,7 +6,7 @@
 /*   By: amassias <massias.antoine.pro@gmail.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 13:36:04 by ale-boud          #+#    #+#             */
-/*   Updated: 2024/12/02 09:52:27 by amassias         ###   ########.fr       */
+/*   Updated: 2024/12/03 00:46:38 by amassias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ typedef void			(*t_lr_token_free_cb)(t_lr_token_type *data);
 /**
  * @brief Token description.
  * 
- * @param id The state id from which this token is created.
+ * @param id The current automata state id.
  * @param data The data contained in this token.
  * 
  * @author ale-boud (ale-boud@student.42.fr)
@@ -102,7 +102,7 @@ typedef void			(*t_lr_token_free_cb)(t_lr_token_type *data);
 typedef struct s_lr_token
 {
 	/**
-	 * @brief The state id from which a token is created.
+	 * @brief The current automata state id.
 	 */
 	t_lr_token_id	id;
 	/**
