@@ -6,7 +6,7 @@
 /*   By: amassias <massias.antoine.pro@gmail.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 02:47:15 by ale-boud          #+#    #+#             */
-/*   Updated: 2024/11/30 19:47:36 by amassias         ###   ########.fr       */
+/*   Updated: 2024/12/03 00:47:21 by amassias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 // ************************************************************************** //
 
 /**
- * @brief A type to represent state ids.
+ * @brief A type to represent the automata state ids.
  * 
  * @author ale-boud (ale-boud@student.42.fr)
  * @date 2023-11-29
@@ -39,7 +39,7 @@
 typedef int	t_lr_state_id;
 
 /**
- * @brief A type to represent production ids.
+ * @brief A type to represent the automata production ids.
  * 
  * @author ale-boud (ale-boud@student.42.fr)
  * @date 2023-11-29
