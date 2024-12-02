@@ -6,7 +6,7 @@
 /*   By: amassias <massias.antoine.pro@gmail.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 00:32:25 by ale-boud          #+#    #+#             */
-/*   Updated: 2024/11/30 15:16:45 by amassias         ###   ########.fr       */
+/*   Updated: 2024/12/02 09:36:02 by amassias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,17 @@
  */
 typedef enum e_lr_stack_item_type
 {
+	/**
+	 * @brief Token.
+	 */
 	ITEM_TOKEN,
+	/**
+	 * @brief Derivation.
+	 */
 	ITEM_DERIVED,
+	/**
+	 * @brief Axiom.
+	 */
 	ITEM_AXIOM,
 	ITEM__COUNT,
 }	t_lr_stack_item_type;
@@ -86,8 +95,8 @@ typedef struct s_lr_stack_derived
 /**
  * @brief LR analyzer stack item data.
  * 
- * @param token TODO: documentation
- * @param derived TODO: documentation
+ * @param token Token data.
+ * @param derived Derivation data.
  * 
  * @author ale-boud (ale-boud@student.42.fr)
  * @date 2023-11-29
@@ -95,8 +104,14 @@ typedef struct s_lr_stack_derived
  */
 typedef union u_lr_stack_item_data
 {
-	t_lr_token			token; // TODO: token generation data
-	t_lr_stack_derived	derived; // TODO: cleanup callback
+	/**
+	 * @brief Token data.
+	 */
+	t_lr_token			token;
+	/**
+	 * @brief Derivation data.
+	 */
+	t_lr_stack_derived	derived;
 }	t_lr_stack_item_data;
 
 /**
@@ -112,8 +127,17 @@ typedef union u_lr_stack_item_data
  */
 typedef struct s_lr_stack_item
 {
+	/**
+	 * @brief Item type.
+	 */
 	t_lr_stack_item_type	type;
+	/**
+	 * @brief Item data.
+	 */
 	t_lr_stack_item_data	data;
+	/**
+	 * @brief The state from which this item comes from.
+	 */
 	t_lr_state_id			state_id;
 }	t_lr_stack_item;
 
@@ -141,10 +165,25 @@ typedef struct s_lr_stack_item
  */
 typedef struct s_lr_stack
 {
+	/**
+	 * @brief Stack items.
+	 */
 	t_lr_stack_item		*data;
+	/**
+	 * @brief List of callback to free each type of token.
+	 */
 	t_lr_token_free_cb	*token_free_cbs;
+	/**
+	 * @brief Number of allocated stack items.
+	 */
 	size_t				alloced;
+	/**
+	 * @brief number of used stack items.
+	 */
 	size_t				used;
+	/**
+	 * @brief A pointer to the data provided by the user.
+	 */
 	void				*usrptr;
 }	t_lr_stack;
 
@@ -289,6 +328,7 @@ t_lr_error		lr_stack_popn(
 					t_lr_stack *stack,
 					size_t count
 					);
+
 /**
  * @brief Returns the id of the last state that has been pushed onto `stack`.
  * 

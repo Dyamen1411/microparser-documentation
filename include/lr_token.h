@@ -6,7 +6,7 @@
 /*   By: amassias <massias.antoine.pro@gmail.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 13:36:04 by ale-boud          #+#    #+#             */
-/*   Updated: 2024/11/30 15:25:02 by amassias         ###   ########.fr       */
+/*   Updated: 2024/12/02 09:52:27 by amassias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,35 @@
  * 
  * @brief Definition of tokens.
  * 
- * @par
- * 	You must define `MP_TOKEN_TYPE` with the type of the token !
- * @endparblock
- * 
- * @par
- * 	Example 1 :
+ * @warning
+ * The user must define `MP_TOKEN_TYPE` with the type of the token ! \n
+ * \n
+ * 	**Example 1** :
  * 	@code
  * 	#define MP_TOKEN_TYPE int
  * 	@endcode
- * @endparblock
- * 
- * @par
- * 	Example 2 :
+ * \n
+ * 	**Example 2** :
  * 	@code
  * 	#define MP_TOKEN_TYPE	\
- * 	struct			\
- * 	{				\
- * 		int a;		\
- * 		bool b;		\
- * 		char* ptr;	\
+ * 	struct					\
+ * 	{						\
+ * 		int a;				\
+ * 		bool b;				\
+ * 		char* ptr;			\
  * 	}
  * 	@endcode
- * @endparblock
+ * \n
+ * 	**Example 3** :
+ * 	@code
+ * 	#define MP_TOKEN_TYPE	\
+ * 	union					\
+ * 	{						\
+ * 		int a;				\
+ * 		bool b;				\
+ * 		char* ptr;			\
+ * 	}
+ * 	@endcode
  * 
  * @author ale-boud (ale-boud@student.42.fr)
  * @date 2023-11-29
@@ -64,7 +70,7 @@ typedef MP_TOKEN_TYPE	t_lr_token_type;
 # endif
 
 /**
- * @brief The state from which this token is created.
+ * @brief The state id from which a token is created.
  * 
  * @author ale-boud (ale-boud@student.42.fr)
  * @date 2023-11-29
@@ -73,9 +79,9 @@ typedef MP_TOKEN_TYPE	t_lr_token_type;
 typedef int				t_lr_token_id;
 
 /**
- * @brief A callback to free your token type.
+ * @brief A callback to free the user defined token type.
  * 
- * @param data A token data.
+ * @param data Token data.
  * 
  * @author ale-boud (ale-boud@student.42.fr)
  * @date 2023-11-29
@@ -84,9 +90,9 @@ typedef int				t_lr_token_id;
 typedef void			(*t_lr_token_free_cb)(t_lr_token_type *data);
 
 /**
- * @brief A token description.
+ * @brief Token description.
  * 
- * @param id The state id.
+ * @param id The state id from which this token is created.
  * @param data The data contained in this token.
  * 
  * @author ale-boud (ale-boud@student.42.fr)
@@ -95,7 +101,13 @@ typedef void			(*t_lr_token_free_cb)(t_lr_token_type *data);
  */
 typedef struct s_lr_token
 {
+	/**
+	 * @brief The state id from which a token is created.
+	 */
 	t_lr_token_id	id;
+	/**
+	 * @brief The data contained in this token.
+	 */
 	t_lr_token_type	data;
 }	t_lr_token;
 
